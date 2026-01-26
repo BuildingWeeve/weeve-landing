@@ -151,7 +151,7 @@ export default function ProductDemo() {
                     <div>
                       <h4 className="font-semibold text-lg mb-1">One-Click Save</h4>
                       <p className="text-gray-600">
-                        Click the Weeve extension icon to instantly save any page you're browsing
+                        Click the Weeve extension icon to instantly save any page you&apos;re browsing
                       </p>
                     </div>
                   </div>
@@ -190,7 +190,7 @@ export default function ProductDemo() {
                       <div className="w-2 h-2 rounded-full bg-primary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-lg mb-1">Simple 'Share-To' Functionality</h4>
+                      <h4 className="font-semibold text-lg mb-1">Simple &apos;Share-To&apos; Functionality</h4>
                       <p className="text-gray-600">
                         Share any link directly to Weeve from any app
                       </p>

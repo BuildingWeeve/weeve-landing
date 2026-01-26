@@ -95,15 +95,12 @@ export default function HowItWorks() {
 
           {steps.map((step, index) => {
             const Icon = step.icon
-            const stepRef = useRef(null)
-            const stepInView = useInView(stepRef, { once: true, margin: '-100px' })
 
             return (
               <motion.div
                 key={index}
-                ref={stepRef}
                 initial={{ opacity: 0, y: 50 }}
-                animate={stepInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 onMouseEnter={() => {
                   setActiveStep(index)
