@@ -1,42 +1,48 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
-import { Bookmark, Sparkles, Zap } from 'lucide-react'
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { Bookmark, Sparkles, Zap } from "lucide-react";
 
 const steps = [
   {
-    number: 'Step 1',
+    number: "Step 1",
     icon: Bookmark,
-    title: 'Save from Anywhere',
-    description: 'Click the extension, use the mobile app, or share directly to Weeve on the web. Save products, articles, recipes, places, and more.',
-    color: 'from-orange-500 to-red-500',
+    title: "Save from Anywhere",
+    description:
+      "Click the extension, use the mobile app, or share directly to Weeve on the web. Save products, articles, recipes, places, and more.",
+    color: "from-orange-500 to-red-500",
   },
   {
-    number: 'Step 2',
+    number: "Step 2",
     icon: Sparkles,
-    title: 'AI Extracts',
-    description: 'Our AI automatically extracts prices, key details, images, and summaries. Everything becomes a structured, beautiful card.',
-    color: 'from-primary to-orange-400',
+    title: "AI Extracts",
+    description:
+      "Our AI automatically extracts prices, key details, images, and summaries. Everything becomes a structured, beautiful card.",
+    color: "from-primary to-orange-400",
   },
   {
-    number: 'Step 3',
+    number: "Step 3",
     icon: Zap,
-    title: 'Organize & Act',
-    description: 'Build lists, compare options, collaborate with others, and resurface saved content when you need it most.',
-    color: 'from-amber-500 to-orange-500',
+    title: "Organize & Act",
+    description:
+      "Build lists, compare options, collaborate with others, and resurface saved content when you need it most.",
+    color: "from-amber-500 to-orange-500",
   },
-]
+];
 
 export default function HowItWorks() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-  const [activeStep, setActiveStep] = useState(0)
-  const [hoveredStep, setHoveredStep] = useState<number | null>(null)
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const [activeStep, setActiveStep] = useState(0);
+  const [hoveredStep, setHoveredStep] = useState<number | null>(null);
 
   return (
-    <section id="how-it-works" className="py-20 md:py-32 bg-gradient-to-b from-white to-orange-50/30">
+    <section
+      id="how-it-works"
+      className="py-20 md:py-32 bg-gradient-to-b from-white to-orange-50/30"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -68,7 +74,7 @@ export default function HowItWorks() {
               style={{ zIndex: 1 }}
             >
               <motion.path
-                d={`M ${hoveredStep === 0 ? '33%' : '66%'} 20 Q ${hoveredStep === 0 ? '50%' : '83%'} 60, ${hoveredStep === 0 ? '66%' : '100%'} 20`}
+                d={`M ${hoveredStep === 0 ? "33%" : "66%"} 20 Q ${hoveredStep === 0 ? "50%" : "83%"} 60, ${hoveredStep === 0 ? "66%" : "100%"} 20`}
                 stroke="#ff7900"
                 strokeWidth="2"
                 fill="none"
@@ -83,18 +89,18 @@ export default function HowItWorks() {
                 cy="0"
                 r="4"
                 fill="#ff7900"
-                initial={{ offsetDistance: '0%' }}
-                animate={{ offsetDistance: '100%' }}
+                initial={{ offsetDistance: "0%" }}
+                animate={{ offsetDistance: "100%" }}
                 transition={{ duration: 0.8, ease: "easeInOut" }}
                 style={{
-                  offsetPath: `path('M ${hoveredStep === 0 ? '33%' : '66%'} 20 Q ${hoveredStep === 0 ? '50%' : '83%'} 60, ${hoveredStep === 0 ? '66%' : '100%'} 20')`,
+                  offsetPath: `path('M ${hoveredStep === 0 ? "33%" : "66%"} 20 Q ${hoveredStep === 0 ? "50%" : "83%"} 60, ${hoveredStep === 0 ? "66%" : "100%"} 20')`,
                 }}
               />
             </motion.svg>
           )}
 
           {steps.map((step, index) => {
-            const Icon = step.icon
+            const Icon = step.icon;
 
             return (
               <motion.div
@@ -103,8 +109,8 @@ export default function HowItWorks() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 onMouseEnter={() => {
-                  setActiveStep(index)
-                  setHoveredStep(index)
+                  setActiveStep(index);
+                  setHoveredStep(index);
                 }}
                 onMouseLeave={() => setHoveredStep(null)}
                 className="relative p-6 md:p-8"
@@ -131,7 +137,7 @@ export default function HowItWorks() {
                     >
                       <Icon className="w-8 h-8 text-white" />
                     </motion.div>
-                    
+
                     {/* Step Number */}
                     <motion.div
                       animate={{
@@ -145,15 +151,11 @@ export default function HowItWorks() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-lg">
-                    {step.description}
-                  </p>
+                  <h3 className="text-2xl font-bold mb-4 text-gray-900">{step.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-lg">{step.description}</p>
                 </div>
               </motion.div>
-            )
+            );
           })}
         </div>
 
@@ -174,5 +176,5 @@ export default function HowItWorks() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

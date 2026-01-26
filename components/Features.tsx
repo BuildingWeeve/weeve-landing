@@ -1,18 +1,9 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import {
-  Zap,
-  Brain,
-  Layers,
-  Search,
-  Users,
-  Sparkles,
-  Link2,
-  LayoutGrid,
-} from 'lucide-react'
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { Zap, Brain, Layers, Search, Users, Sparkles, Link2, LayoutGrid } from "lucide-react";
 
 // Custom Cross-Platform Icon Component
 const CrossPlatformIcon = ({ className }: { className?: string }) => (
@@ -31,50 +22,69 @@ const CrossPlatformIcon = ({ className }: { className?: string }) => (
     <path d="M7 13 L7 15" />
     <path d="M11 13 L11 15" />
     <path d="M5 15 L13 15" />
-    
+
     {/* Phone on top */}
-    <rect x="13" y="6" width="8" height="14" rx="1.5" fill="#fff7ed" stroke="currentColor" strokeWidth="2" />
-    <line x1="15" y1="18" x2="19" y2="18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <rect
+      x="13"
+      y="6"
+      width="8"
+      height="14"
+      rx="1.5"
+      fill="#fff7ed"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <line
+      x1="15"
+      y1="18"
+      x2="19"
+      y2="18"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
   </svg>
-)
+);
 
 const features = [
   {
     icon: Link2,
-    title: 'Save Anything',
-    description: 'Capture products, recipes, real estate, travel plans, podcasts, research, and more from anywhere on the web.',
+    title: "Save Anything",
+    description:
+      "Capture products, recipes, real estate, travel plans, podcasts, research, and more from anywhere on the web.",
   },
   {
     icon: Brain,
-    title: 'AI-Powered Intelligence',
-    description: 'Automatic extraction of prices, key details, and summaries from every saved item.',
+    title: "AI-Powered Intelligence",
+    description:
+      "Automatic extraction of prices, key details, and summaries from every saved item.",
   },
   {
     icon: Search,
-    title: 'Easy Search',
+    title: "Easy Search",
     description: "Find anything you've saved in seconds. No more losing track of links.",
   },
   {
     icon: LayoutGrid,
-    title: 'Build Lists & Compare',
-    description: 'Create collections, compare options, and make better decisions faster.',
+    title: "Build Lists & Compare",
+    description: "Create collections, compare options, and make better decisions faster.",
   },
   {
     icon: Users,
-    title: 'Collaborate',
-    description: 'Share your collections with friends and family. Plan together, decide together.',
+    title: "Collaborate",
+    description: "Share your collections with friends and family. Plan together, decide together.",
   },
   {
     icon: CrossPlatformIcon,
-    title: 'Cross-Platform',
-    description: 'Access your saves from mobile app or web app. Anywhere. Anytime. Always in sync.',
+    title: "Cross-Platform",
+    description: "Access your saves from mobile app or web app. Anywhere. Anytime. Always in sync.",
   },
-]
+];
 
-function FeatureCard({ feature, index }: { feature: typeof features[0]; index: number }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const Icon = feature.icon
+function FeatureCard({ feature, index }: { feature: (typeof features)[0]; index: number }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const Icon = feature.icon;
 
   return (
     <motion.div
@@ -95,23 +105,19 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
         </motion.div>
 
         {/* Content */}
-        <h3 className="text-xl font-semibold mb-3 text-gray-900">
-          {feature.title}
-        </h3>
-        <p className="text-gray-600 leading-relaxed">
-          {feature.description}
-        </p>
+        <h3 className="text-xl font-semibold mb-3 text-gray-900">{feature.title}</h3>
+        <p className="text-gray-600 leading-relaxed">{feature.description}</p>
 
         {/* Hover effect border */}
         <div className="absolute inset-0 rounded-2xl border-2 border-primary/0 group-hover:border-primary/20 transition-colors pointer-events-none" />
       </div>
     </motion.div>
-  )
+  );
 }
 
 export default function Features() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   return (
     <section id="features" className="py-20 md:py-32 bg-white">
@@ -133,7 +139,8 @@ export default function Features() {
             finally <span className="text-primary">all in one place</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Weeve lets you save anything you discover online, so nothing gets lost and everything is easy to find when you need it.
+            Weeve lets you save anything you discover online, so nothing gets lost and everything is
+            easy to find when you need it.
           </p>
         </motion.div>
 
@@ -145,5 +152,5 @@ export default function Features() {
         </div>
       </div>
     </section>
-  )
+  );
 }

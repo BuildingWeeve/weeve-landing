@@ -1,18 +1,18 @@
-'use client'
+"use client";
 
-import { motion, AnimatePresence } from 'framer-motion'
-import { useEffect, useState } from 'react'
-import { Sparkles, Tag, DollarSign, MapPin } from 'lucide-react'
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Sparkles, Tag, DollarSign, MapPin } from "lucide-react";
 
 export default function AnimatedSaveDemo() {
-  const [step, setStep] = useState(0)
+  const [step, setStep] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setStep((prev) => (prev + 1) % 4)
-    }, 3000)
-    return () => clearInterval(timer)
-  }, [])
+      setStep((prev) => (prev + 1) % 4);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="relative w-full max-w-md mx-auto h-[400px]">
@@ -37,7 +37,7 @@ export default function AnimatedSaveDemo() {
               <div className="flex items-center justify-center space-x-2 text-primary">
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                  transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                 >
                   <Sparkles className="w-5 h-5" />
                 </motion.div>
@@ -135,7 +135,7 @@ export default function AnimatedSaveDemo() {
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  transition={{ delay: 0.3, type: 'spring' }}
+                  transition={{ delay: 0.3, type: "spring" }}
                   className="absolute inset-0 flex items-center justify-center"
                 >
                   <div className="w-32 h-32 bg-white/80 backdrop-blur rounded-2xl shadow-lg" />
@@ -188,13 +188,13 @@ export default function AnimatedSaveDemo() {
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ type: 'spring', stiffness: 200 }}
+              transition={{ type: "spring", stiffness: 200 }}
               className="bg-primary rounded-full w-24 h-24 flex items-center justify-center shadow-2xl"
             >
               <motion.div
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
-                transition={{ delay: 0.2, type: 'spring' }}
+                transition={{ delay: 0.2, type: "spring" }}
                 className="text-white text-5xl"
               >
                 ✓
@@ -220,12 +220,12 @@ export default function AnimatedSaveDemo() {
             key={i}
             animate={{
               scale: step === i ? 1.2 : 1,
-              backgroundColor: step === i ? '#ff7900' : '#d1d5db',
+              backgroundColor: step === i ? "#ff7900" : "#d1d5db",
             }}
             className="w-2 h-2 rounded-full"
           />
         ))}
       </div>
     </div>
-  )
+  );
 }

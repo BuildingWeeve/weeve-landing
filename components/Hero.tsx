@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles, Chrome, Smartphone, Monitor } from 'lucide-react'
-import WeavingAnimation from './WeavingAnimation'
+import { motion } from "framer-motion";
+import { ArrowRight, Sparkles, Chrome, Smartphone, Monitor } from "lucide-react";
+import WeavingAnimation from "./WeavingAnimation";
 
 export default function Hero() {
   return (
@@ -17,7 +17,7 @@ export default function Hero() {
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: 'linear',
+            ease: "linear",
           }}
           className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
         />
@@ -29,7 +29,7 @@ export default function Hero() {
           transition={{
             duration: 15,
             repeat: Infinity,
-            ease: 'linear',
+            ease: "linear",
           }}
           className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
         />
@@ -46,8 +46,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             >
-              Your Universal{' '}
-              <span className="text-primary">Save Layer</span>
+              Your Universal <span className="text-primary">Save Layer</span>
               <br />
               for the Internet
             </motion.h1>
@@ -59,8 +58,9 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-base md:text-lg text-gray-600 leading-relaxed max-w-xl"
             >
-              Instantly capture, organize, and return to anything you care about online.
-              From products to recipes to content, Weeve turns every link into a structured, organized card.
+              Instantly capture, organize, and return to anything you care about online. From
+              products to recipes to content, Weeve turns every link into a structured, organized
+              card.
             </motion.p>
 
             {/* CTAs */}
@@ -148,7 +148,7 @@ export default function Hero() {
           transition={{
             duration: 1.5,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
           }}
           className="w-6 h-10 border-2 border-gray-400 rounded-full flex items-start justify-center p-2"
         >
@@ -156,5 +156,5 @@ export default function Hero() {
         </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }

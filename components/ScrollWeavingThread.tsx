@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
 
 // Function to get point on the weaving path
 const getPointOnPath = (t: number) => {
@@ -14,64 +14,66 @@ const getPointOnPath = (t: number) => {
     { start: 0.57, end: 0.71, x1: 8, y1: 60, cx: 4, cy: 67, x2: 10, y2: 75 },
     { start: 0.71, end: 0.86, x1: 10, y1: 75, cx: 14, cy: 82, x2: 8, y2: 90 },
     { start: 0.86, end: 1, x1: 8, y1: 90, cx: 5, cy: 95, x2: 8, y2: 100 },
-  ]
-  
-  const segment = segments.find(s => t >= s.start && t <= s.end) || segments[0]
-  const localT = (t - segment.start) / (segment.end - segment.start)
-  
+  ];
+
+  const segment = segments.find((s) => t >= s.start && t <= s.end) || segments[0];
+  const localT = (t - segment.start) / (segment.end - segment.start);
+
   // Quadratic bezier formula
-  const x = Math.pow(1 - localT, 2) * segment.x1 + 2 * (1 - localT) * localT * segment.cx + Math.pow(localT, 2) * segment.x2
-  const y = Math.pow(1 - localT, 2) * segment.y1 + 2 * (1 - localT) * localT * segment.cy + Math.pow(localT, 2) * segment.y2
-  
+  const x =
+    Math.pow(1 - localT, 2) * segment.x1 +
+    2 * (1 - localT) * localT * segment.cx +
+    Math.pow(localT, 2) * segment.x2;
+  const y =
+    Math.pow(1 - localT, 2) * segment.y1 +
+    2 * (1 - localT) * localT * segment.cy +
+    Math.pow(localT, 2) * segment.y2;
+
   // Calculate angle (derivative for rotation)
-  const dx = 2 * (1 - localT) * (segment.cx - segment.x1) + 2 * localT * (segment.x2 - segment.cx)
-  const dy = 2 * (1 - localT) * (segment.cy - segment.y1) + 2 * localT * (segment.y2 - segment.cy)
-  const angle = Math.atan2(dy, dx) * (180 / Math.PI) - 90 // -90 to point needle direction
-  
-  return { x, y, angle }
-}
+  const dx = 2 * (1 - localT) * (segment.cx - segment.x1) + 2 * localT * (segment.x2 - segment.cx);
+  const dy = 2 * (1 - localT) * (segment.cy - segment.y1) + 2 * localT * (segment.y2 - segment.cy);
+  const angle = Math.atan2(dy, dx) * (180 / Math.PI) - 90; // -90 to point needle direction
+
+  return { x, y, angle };
+};
 
 export default function ScrollWeavingThread() {
-  const { scrollYProgress } = useScroll()
-  const [mounted, setMounted] = useState(false)
-  const [needlePos, setNeedlePos] = useState({ x: 8, y: 0, angle: 0 })
+  const { scrollYProgress } = useScroll();
+  const [mounted, setMounted] = useState(false);
+  const [needlePos, setNeedlePos] = useState({ x: 8, y: 0, angle: 0 });
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
-    const unsubscribe = scrollYProgress.on('change', (latest) => {
-      const pos = getPointOnPath(latest)
-      setNeedlePos(pos)
-    })
-    
-    return () => unsubscribe()
-  }, [scrollYProgress])
+    const unsubscribe = scrollYProgress.on("change", (latest) => {
+      const pos = getPointOnPath(latest);
+      setNeedlePos(pos);
+    });
 
-  const pathLengthValue = useTransform(scrollYProgress, [0, 1], [0, 1])
+    return () => unsubscribe();
+  }, [scrollYProgress]);
 
-  if (!mounted) return null
+  const pathLengthValue = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  if (!mounted) return null;
 
   return (
     <div className="fixed left-0 top-24 bottom-0 w-32 pointer-events-none z-30 overflow-hidden">
-      <svg
-        className="w-full h-full"
-        viewBox="0 0 20 100"
-        preserveAspectRatio="xMinYMin meet"
-      >
+      <svg className="w-full h-full" viewBox="0 0 20 100" preserveAspectRatio="xMinYMin meet">
         <defs>
           <linearGradient id="threadGradient" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stopColor="#ff7900" stopOpacity={0.3} />
             <stop offset="50%" stopColor="#ff7900" stopOpacity={0.6} />
             <stop offset="100%" stopColor="#ff7900" stopOpacity={0.3} />
           </linearGradient>
-          
+
           <filter id="glow">
-            <feGaussianBlur stdDeviation="0.5" result="coloredBlur"/>
+            <feGaussianBlur stdDeviation="0.5" result="coloredBlur" />
             <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>
@@ -127,14 +129,7 @@ export default function ScrollWeavingThread() {
             filter="url(#glow)"
           />
           {/* Needle eye (hole) */}
-          <circle
-            cx="0"
-            cy="-0.5"
-            r="0.15"
-            fill="white"
-            stroke="#666"
-            strokeWidth="0.03"
-          />
+          <circle cx="0" cy="-0.5" r="0.15" fill="white" stroke="#666" strokeWidth="0.03" />
           {/* Needle tip highlight */}
           <path
             d="M -0.1 -1.8 L 0 -2 L 0.1 -1.8"
@@ -145,5 +140,5 @@ export default function ScrollWeavingThread() {
         </g>
       </svg>
     </div>
-  )
+  );
 }

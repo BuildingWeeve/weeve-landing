@@ -20,6 +20,7 @@ A modern, animated landing page for Weeve - your universal save layer.
 To update Node.js:
 
 1. **Using Homebrew (recommended for macOS):**
+
    ```bash
    brew install node@20
    ```
@@ -91,6 +92,7 @@ The primary orange color (#ff7900) is configured in `tailwind.config.ts`. You ca
 ### Fonts
 
 The project uses:
+
 - **Inter** for body text (loaded from Google Fonts)
 - **Satisfy** for the logo (script/cursive style)
 
@@ -99,6 +101,7 @@ Change fonts in `app/layout.tsx` and `tailwind.config.ts`.
 ### Content
 
 Update content in each component file:
+
 - Hero messaging: `components/Hero.tsx`
 - Features: `components/Features.tsx`
 - Testimonials: `components/Testimonials.tsx`
@@ -118,6 +121,7 @@ Add product screenshots and images to `public/images/` and reference them in com
 ## Performance
 
 The landing page is optimized for:
+
 - Fast loading with Next.js Image optimization
 - Smooth animations with Framer Motion
 - Minimal bundle size

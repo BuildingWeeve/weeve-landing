@@ -1,15 +1,15 @@
-'use client'
+"use client";
 
-import { motion, AnimatePresence } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef, useState, useEffect } from 'react'
-import { Chrome, Smartphone, ArrowRight, Bell, ChevronDown, X, Folder, List } from 'lucide-react'
-import Image from 'next/image'
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { Chrome, Smartphone, ArrowRight, Bell, ChevronDown, X, Folder, List } from "lucide-react";
+import Image from "next/image";
 
 export default function ProductDemo() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-  const [activeDemo, setActiveDemo] = useState<'mobile' | 'web-app' | 'extension'>('mobile')
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const [activeDemo, setActiveDemo] = useState<"mobile" | "web-app" | "extension">("mobile");
 
   return (
     <section id="demo" className="py-20 md:py-32 bg-white">
@@ -36,33 +36,27 @@ export default function ProductDemo() {
         <div className="flex justify-center mb-12">
           <div className="inline-flex bg-gray-100 rounded-full p-1">
             <button
-              onClick={() => setActiveDemo('mobile')}
+              onClick={() => setActiveDemo("mobile")}
               className={`px-6 py-3 rounded-full font-medium transition-all flex items-center space-x-2 ${
-                activeDemo === 'mobile'
-                  ? 'bg-white shadow-md text-gray-900'
-                  : 'text-gray-600'
+                activeDemo === "mobile" ? "bg-white shadow-md text-gray-900" : "text-gray-600"
               }`}
             >
               <Smartphone className="w-5 h-5" />
               <span>Mobile App</span>
             </button>
             <button
-              onClick={() => setActiveDemo('web-app')}
+              onClick={() => setActiveDemo("web-app")}
               className={`px-6 py-3 rounded-full font-medium transition-all flex items-center space-x-2 ${
-                activeDemo === 'web-app'
-                  ? 'bg-white shadow-md text-gray-900'
-                  : 'text-gray-600'
+                activeDemo === "web-app" ? "bg-white shadow-md text-gray-900" : "text-gray-600"
               }`}
             >
               <Chrome className="w-5 h-5" />
               <span>Web App</span>
             </button>
             <button
-              onClick={() => setActiveDemo('extension')}
+              onClick={() => setActiveDemo("extension")}
               className={`px-6 py-3 rounded-full font-medium transition-all flex items-center space-x-2 ${
-                activeDemo === 'extension'
-                  ? 'bg-white shadow-md text-gray-900'
-                  : 'text-gray-600'
+                activeDemo === "extension" ? "bg-white shadow-md text-gray-900" : "text-gray-600"
               }`}
             >
               <Chrome className="w-5 h-5" />
@@ -81,9 +75,9 @@ export default function ProductDemo() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            {activeDemo === 'mobile' ? (
+            {activeDemo === "mobile" ? (
               <MobileDemo />
-            ) : activeDemo === 'web-app' ? (
+            ) : activeDemo === "web-app" ? (
               <ExtensionDemo />
             ) : (
               <ExtensionPopupDemo />
@@ -97,11 +91,9 @@ export default function ProductDemo() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            {activeDemo === 'web-app' ? (
+            {activeDemo === "web-app" ? (
               <div>
-                <h3 className="text-3xl font-bold mb-6">
-                  One click to save anything
-                </h3>
+                <h3 className="text-3xl font-bold mb-6">One click to save anything</h3>
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start space-x-4">
                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
@@ -138,11 +130,9 @@ export default function ProductDemo() {
                   </div>
                 </div>
               </div>
-            ) : activeDemo === 'extension' ? (
+            ) : activeDemo === "extension" ? (
               <div>
-                <h3 className="text-3xl font-bold mb-6">
-                  Save from any website
-                </h3>
+                <h3 className="text-3xl font-bold mb-6">Save from any website</h3>
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start space-x-4">
                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
@@ -151,7 +141,8 @@ export default function ProductDemo() {
                     <div>
                       <h4 className="font-semibold text-lg mb-1">One-Click Save</h4>
                       <p className="text-gray-600">
-                        Click the Weeve extension icon to instantly save any page you&apos;re browsing
+                        Click the Weeve extension icon to instantly save any page you&apos;re
+                        browsing
                       </p>
                     </div>
                   </div>
@@ -181,19 +172,17 @@ export default function ProductDemo() {
               </div>
             ) : (
               <div>
-                <h3 className="text-3xl font-bold mb-6">
-                  Easy Mobile Saving
-                </h3>
+                <h3 className="text-3xl font-bold mb-6">Easy Mobile Saving</h3>
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start space-x-4">
                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
                       <div className="w-2 h-2 rounded-full bg-primary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-lg mb-1">Simple &apos;Share-To&apos; Functionality</h4>
-                      <p className="text-gray-600">
-                        Share any link directly to Weeve from any app
-                      </p>
+                      <h4 className="font-semibold text-lg mb-1">
+                        Simple &apos;Share-To&apos; Functionality
+                      </h4>
+                      <p className="text-gray-600">Share any link directly to Weeve from any app</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -213,9 +202,7 @@ export default function ProductDemo() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-lg mb-1">There When You Need It</h4>
-                      <p className="text-gray-600">
-                        Open any saved link easily from the app
-                      </p>
+                      <p className="text-gray-600">Open any saved link easily from the app</p>
                     </div>
                   </div>
                 </div>
@@ -234,7 +221,7 @@ export default function ProductDemo() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function ExtensionDemo() {
@@ -249,7 +236,7 @@ function ExtensionDemo() {
         {/* Animated Mouse Cursor */}
         <motion.div
           className="absolute z-50 pointer-events-none"
-          initial={{ 
+          initial={{
             x: 100,
             y: 200,
             scale: 1,
@@ -264,11 +251,11 @@ function ExtensionDemo() {
           transition={{
             duration: 1.5,
             times: [0, 0.4, 0.65, 0.8, 1],
-            ease: 'easeInOut',
+            ease: "easeInOut",
           }}
           style={{
-            width: '24px',
-            height: '24px',
+            width: "24px",
+            height: "24px",
           }}
         >
           <svg
@@ -286,10 +273,22 @@ function ExtensionDemo() {
               l-21.808,116.971H462.852L322.1,793.936l-71.364-113.001l-29.733-67.405c0,0-31.728-65.417-25.781-65.417
               c5.952,0,37.672-31.725,37.672-31.725s41.622,13.877,47.574,13.877c5.953,0,77.317,37.667,77.317,37.667L403.382,617.495z"
             />
-            <polygon fill="#1D1D1B" points="582.461,289.838 547.948,289.838 547.948,523.456 582.461,523.456 582.461,289.838" />
-            <polygon fill="#1D1D1B" points="725.299,350.667 690.781,350.667 690.781,526.1 725.299,526.1 725.299,350.667" />
-            <polygon fill="#1D1D1B" points="886.648,402.553 852.135,402.553 852.135,602.807 886.648,602.807 886.648,402.553" />
-            <polygon fill="#1D1D1B" points="417.002,504.185 382.484,504.185 382.484,657.576 417.002,657.576 417.002,504.185" />
+            <polygon
+              fill="#1D1D1B"
+              points="582.461,289.838 547.948,289.838 547.948,523.456 582.461,523.456 582.461,289.838"
+            />
+            <polygon
+              fill="#1D1D1B"
+              points="725.299,350.667 690.781,350.667 690.781,526.1 725.299,526.1 725.299,350.667"
+            />
+            <polygon
+              fill="#1D1D1B"
+              points="886.648,402.553 852.135,402.553 852.135,602.807 886.648,602.807 886.648,402.553"
+            />
+            <polygon
+              fill="#1D1D1B"
+              points="417.002,504.185 382.484,504.185 382.484,657.576 417.002,657.576 417.002,504.185"
+            />
             <path
               fill="#1D1D1B"
               d="M489.782,85c15.984,0,37.318,2.397,48.185,13.815c11.913,12.517,10.767,35.706,10.151,48.164
@@ -348,10 +347,12 @@ function ExtensionDemo() {
           {/* Collections Grid */}
           <div className="p-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-bold">Clothing & Shoes <span className="text-gray-400 text-sm ml-2">3 lists</span></h2>
+              <h2 className="text-xl font-bold">
+                Clothing & Shoes <span className="text-gray-400 text-sm ml-2">3 lists</span>
+              </h2>
               <button className="text-primary font-medium text-sm">See all</button>
             </div>
-            
+
             <div className="grid grid-cols-3 gap-4">
               {/* Collection Card 1 */}
               <motion.div
@@ -377,7 +378,10 @@ function ExtensionDemo() {
                 <div className="p-3">
                   <div className="font-semibold text-sm mb-1">Winter Jackets</div>
                   <div className="text-xs text-gray-500 inline-flex items-baseline">
-                    <span className="relative inline-block" style={{ height: '12px', overflow: 'visible', verticalAlign: 'baseline' }}>
+                    <span
+                      className="relative inline-block"
+                      style={{ height: "12px", overflow: "visible", verticalAlign: "baseline" }}
+                    >
                       {/* Firework Sparkles */}
                       {[...Array(6)].map((_, i) => {
                         const angle = (i * 360) / 6;
@@ -385,12 +389,12 @@ function ExtensionDemo() {
                         const radians = (angle * Math.PI) / 180;
                         const x = Math.cos(radians) * distance;
                         const y = Math.sin(radians) * distance;
-                        
+
                         return (
                           <motion.div
                             key={i}
                             className="absolute top-1/2 left-1/2 w-1 h-1 rounded-full bg-primary"
-                            initial={{ 
+                            initial={{
                               opacity: 0,
                               scale: 0,
                               x: 0,
@@ -403,18 +407,18 @@ function ExtensionDemo() {
                               y: y,
                             }}
                             transition={{
-                              delay: 1.8 + (i * 0.05),
+                              delay: 1.8 + i * 0.05,
                               duration: 0.5,
                               ease: "easeOut",
                             }}
                             style={{
-                              boxShadow: '0 0 4px rgba(251, 146, 60, 0.8)',
+                              boxShadow: "0 0 4px rgba(251, 146, 60, 0.8)",
                             }}
                           />
                         );
                       })}
-                      
-                      <span style={{ height: '12px', overflow: 'hidden', display: 'block' }}>
+
+                      <span style={{ height: "12px", overflow: "hidden", display: "block" }}>
                         <motion.span
                           className="block"
                           initial={{ y: 0 }}
@@ -425,19 +429,21 @@ function ExtensionDemo() {
                             times: [0, 0.4, 1],
                             ease: [0.4, 0, 0.2, 1],
                           }}
-                          style={{ lineHeight: '12px' }}
+                          style={{ lineHeight: "12px" }}
                         >
-                          <span className="block" style={{ height: '12px', lineHeight: '12px' }}>4</span>
+                          <span className="block" style={{ height: "12px", lineHeight: "12px" }}>
+                            4
+                          </span>
                           <motion.span
                             className="block"
-                            initial={{ color: '#fb923c' }}
-                            animate={{ color: ['#fb923c', '#fb923c', '#6b7280'] }}
+                            initial={{ color: "#fb923c" }}
+                            animate={{ color: ["#fb923c", "#fb923c", "#6b7280"] }}
                             transition={{
                               delay: 2.0,
                               duration: 0.8,
                               times: [0, 0.5, 1],
                             }}
-                            style={{ height: '12px', lineHeight: '12px' }}
+                            style={{ height: "12px", lineHeight: "12px" }}
                           >
                             5
                           </motion.span>
@@ -517,14 +523,14 @@ function ExtensionDemo() {
       <motion.div
         initial={{ opacity: 0, y: 20, scale: 0.8 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ delay: 1.3, duration: 0.5, type: 'spring' }}
+        transition={{ delay: 1.3, duration: 0.5, type: "spring" }}
         className="absolute -bottom-4 -right-4 bg-white px-6 py-4 rounded-2xl shadow-2xl flex items-center space-x-3 border border-primary/20"
       >
         <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ delay: 1.5, type: 'spring' }}
+            transition={{ delay: 1.5, type: "spring" }}
           >
             ✓
           </motion.div>
@@ -535,7 +541,7 @@ function ExtensionDemo() {
         </div>
       </motion.div>
     </div>
-  )
+  );
 }
 
 function ExtensionPopupDemo() {
@@ -567,7 +573,7 @@ function ExtensionPopupDemo() {
         </div>
 
         {/* Recipe Website Content */}
-        <div className="bg-white relative overflow-hidden" style={{ height: '500px' }}>
+        <div className="bg-white relative overflow-hidden" style={{ height: "500px" }}>
           {/* Website Header */}
           <div className="bg-white border-b border-gray-200 px-6 py-4">
             <div className="flex items-center justify-between">
@@ -597,7 +603,9 @@ function ExtensionPopupDemo() {
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold">Classic Spaghetti Carbonara</div>
-                <div className="text-lg text-gray-600">A traditional Italian pasta dish with eggs, cheese, and pancetta</div>
+                <div className="text-lg text-gray-600">
+                  A traditional Italian pasta dish with eggs, cheese, and pancetta
+                </div>
                 <div className="flex gap-4 text-sm text-gray-600">
                   <span>30 min</span>
                   <span>4 servings</span>
@@ -613,16 +621,16 @@ function ExtensionPopupDemo() {
       <motion.div
         initial={{ opacity: 0, y: -10, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
+        transition={{ delay: 0.3, duration: 0.4, ease: "easeOut" }}
         className="absolute top-9 right-4 z-50 w-80"
-        style={{ height: 'fit-content', position: 'absolute' }}
+        style={{ height: "fit-content", position: "absolute" }}
       >
         {/* Connector Triangle - points up to extension icon (aligned with icon center) */}
-        <div 
+        <div
           className="absolute -top-1.5 w-3 h-3 bg-white border-l border-t border-gray-200 transform rotate-45 z-10"
-          style={{ right: 'calc(1rem + 6px)' }}
+          style={{ right: "calc(1rem + 6px)" }}
         />
-        
+
         {/* Popup Content */}
         <div className="bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden relative">
           {/* Orange Top Bar */}
@@ -683,19 +691,15 @@ function ExtensionPopupDemo() {
           <div className="px-4 py-3 border-b border-gray-200">
             <div className="grid grid-cols-3 gap-2">
               {[
-                { src: '/images/chrome%20extension/carbonara.jpg', alt: 'Spaghetti Carbonara' },
-                { src: '/images/chrome%20extension/carb2.jpeg', alt: 'Carbonara 2' },
-                { src: '/images/chrome%20extension/carb3.jpg', alt: 'Carbonara 3' },
+                { src: "/images/chrome%20extension/carbonara.jpg", alt: "Spaghetti Carbonara" },
+                { src: "/images/chrome%20extension/carb2.jpeg", alt: "Carbonara 2" },
+                { src: "/images/chrome%20extension/carb3.jpg", alt: "Carbonara 3" },
               ].map((image, i) => (
                 <div
                   key={i}
                   className="aspect-square bg-gray-100 rounded border border-gray-200 overflow-hidden"
                 >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
                 </div>
               ))}
             </div>
@@ -714,32 +718,32 @@ function ExtensionPopupDemo() {
         </div>
       </motion.div>
     </div>
-  )
+  );
 }
 
 function MobileDemo() {
-  const [showPopup, setShowPopup] = useState(true)
-  const [buttonPressed, setButtonPressed] = useState(false)
-  const [showFourthShoe, setShowFourthShoe] = useState(false)
+  const [showPopup, setShowPopup] = useState(true);
+  const [buttonPressed, setButtonPressed] = useState(false);
+  const [showFourthShoe, setShowFourthShoe] = useState(false);
 
   useEffect(() => {
     if (showPopup) {
       // Auto-press button after 2 seconds
       const timer = setTimeout(() => {
-        setButtonPressed(true)
+        setButtonPressed(true);
         // Dismiss popup after button animation completes
         setTimeout(() => {
-          setShowPopup(false)
+          setShowPopup(false);
           // Show 4th shoe after popup dismisses (with delay for fireworks)
           setTimeout(() => {
-            setShowFourthShoe(true)
-          }, 500)
-        }, 400)
-      }, 2000)
-      
-      return () => clearTimeout(timer)
+            setShowFourthShoe(true);
+          }, 500);
+        }, 400);
+      }, 2000);
+
+      return () => clearTimeout(timer);
     }
-  }, [showPopup])
+  }, [showPopup]);
 
   return (
     <div className="flex justify-center">
@@ -774,105 +778,105 @@ function MobileDemo() {
                     className="absolute inset-0 bg-black/50 z-40"
                     onClick={() => setShowPopup(false)}
                   />
-                  
+
                   {/* Popup */}
                   <motion.div
-                    initial={{ y: '100%' }}
+                    initial={{ y: "100%" }}
                     animate={{ y: 0 }}
-                    exit={{ y: '100%', opacity: 0 }}
-                    transition={{ 
-                      type: 'spring',
+                    exit={{ y: "100%", opacity: 0 }}
+                    transition={{
+                      type: "spring",
                       damping: 25,
                       stiffness: 200,
-                      delay: 0.3
+                      delay: 0.3,
                     }}
                     className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl z-50 shadow-2xl"
-                    style={{ height: '70%', maxHeight: '70%' }}
+                    style={{ height: "70%", maxHeight: "70%" }}
                   >
-                  <div className="h-full flex flex-col">
-                    {/* Header */}
-                    <div className="px-6 py-3 flex items-center justify-between border-b border-gray-200">
-                      <h2 className="text-xl font-bold">Weeve Details</h2>
-                      <button
-                        onClick={() => setShowPopup(false)}
-                        className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100"
-                      >
-                        <X className="w-5 h-5 text-gray-600" />
-                      </button>
-                    </div>
-
-                    {/* Scrollable Content */}
-                    <div className="flex-1 overflow-hidden px-6 pt-4 pb-2 min-h-0">
-                      {/* Title Field */}
-                      <div className="mb-3">
-                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                          Title
-                        </label>
-                        <input
-                          type="text"
-                          defaultValue="Running Shoes"
-                          className="w-full px-4 py-2.5 bg-gray-100 rounded-lg border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm"
-                        />
+                    <div className="h-full flex flex-col">
+                      {/* Header */}
+                      <div className="px-6 py-3 flex items-center justify-between border-b border-gray-200">
+                        <h2 className="text-xl font-bold">Weeve Details</h2>
+                        <button
+                          onClick={() => setShowPopup(false)}
+                          className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100"
+                        >
+                          <X className="w-5 h-5 text-gray-600" />
+                        </button>
                       </div>
 
-                      {/* Collection Dropdown */}
-                      <div className="mb-3">
-                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                          Select a collection
-                        </label>
-                        <div className="w-full px-4 py-2.5 bg-gray-100 rounded-lg border border-gray-200 flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <Folder className="w-4 h-4 text-primary" />
-                            <span className="text-gray-900 text-sm">Shopping</span>
-                          </div>
-                          <ChevronDown className="w-4 h-4 text-gray-400" />
-                        </div>
-                      </div>
-
-                      {/* List Dropdown */}
-                      <div className="mb-3">
-                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                          Select a list
-                        </label>
-                        <div className="w-full px-4 py-2.5 bg-gray-100 rounded-lg border border-gray-200 flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <List className="w-4 h-4 text-primary" />
-                            <span className="text-gray-900 text-sm">Shoes</span>
-                          </div>
-                          <ChevronDown className="w-4 h-4 text-gray-400" />
-                        </div>
-                      </div>
-
-                      {/* Image Section */}
-                      <div className="mb-2">
-                        <div className="w-full rounded-lg bg-gray-100 flex items-center justify-center py-2">
-                          <img
-                            src="/images/shoes/Hoka%20Clifton%209.webp"
-                            alt="Hoka Clifton 9"
-                            className="max-h-[65px] w-auto object-contain"
+                      {/* Scrollable Content */}
+                      <div className="flex-1 overflow-hidden px-6 pt-4 pb-2 min-h-0">
+                        {/* Title Field */}
+                        <div className="mb-3">
+                          <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                            Title
+                          </label>
+                          <input
+                            type="text"
+                            defaultValue="Running Shoes"
+                            className="w-full px-4 py-2.5 bg-gray-100 rounded-lg border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm"
                           />
                         </div>
+
+                        {/* Collection Dropdown */}
+                        <div className="mb-3">
+                          <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                            Select a collection
+                          </label>
+                          <div className="w-full px-4 py-2.5 bg-gray-100 rounded-lg border border-gray-200 flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <Folder className="w-4 h-4 text-primary" />
+                              <span className="text-gray-900 text-sm">Shopping</span>
+                            </div>
+                            <ChevronDown className="w-4 h-4 text-gray-400" />
+                          </div>
+                        </div>
+
+                        {/* List Dropdown */}
+                        <div className="mb-3">
+                          <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                            Select a list
+                          </label>
+                          <div className="w-full px-4 py-2.5 bg-gray-100 rounded-lg border border-gray-200 flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <List className="w-4 h-4 text-primary" />
+                              <span className="text-gray-900 text-sm">Shoes</span>
+                            </div>
+                            <ChevronDown className="w-4 h-4 text-gray-400" />
+                          </div>
+                        </div>
+
+                        {/* Image Section */}
+                        <div className="mb-2">
+                          <div className="w-full rounded-lg bg-gray-100 flex items-center justify-center py-2">
+                            <img
+                              src="/images/shoes/Hoka%20Clifton%209.webp"
+                              alt="Hoka Clifton 9"
+                              className="max-h-[65px] w-auto object-contain"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Footer Button */}
+                      <div className="px-6 py-3 border-t border-gray-200">
+                        <motion.button
+                          animate={{
+                            scale: buttonPressed ? [1, 0.95, 1] : 1,
+                          }}
+                          transition={{
+                            duration: 0.3,
+                            times: [0, 0.5, 1],
+                          }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => setShowPopup(false)}
+                          className="w-full bg-primary text-white py-4 rounded-lg font-semibold text-lg shadow-lg"
+                        >
+                          Weeve it
+                        </motion.button>
                       </div>
                     </div>
-
-                    {/* Footer Button */}
-                    <div className="px-6 py-3 border-t border-gray-200">
-                      <motion.button
-                        animate={{
-                          scale: buttonPressed ? [1, 0.95, 1] : 1,
-                        }}
-                        transition={{
-                          duration: 0.3,
-                          times: [0, 0.5, 1],
-                        }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => setShowPopup(false)}
-                        className="w-full bg-primary text-white py-4 rounded-lg font-semibold text-lg shadow-lg"
-                      >
-                        Weeve it
-                      </motion.button>
-                    </div>
-                  </div>
                   </motion.div>
                 </>
               )}
@@ -886,323 +890,340 @@ function MobileDemo() {
                 transition={{ delay: 0.1, duration: 0.5 }}
                 className="h-full overflow-y-auto bg-gray-50 pt-11 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
               >
-              {/* Header */}
-              <div className="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-200">
-                <div className="flex items-center space-x-4">
-                  <div className="text-xl">☰</div>
-                  <Image
-                    src="/images/Large Weeve Cropped.png"
-                    alt="Weeve"
-                    width={400}
-                    height={150}
-                    className="h-7 w-auto"
-                  />
-                </div>
-                <div className="relative">
-                  <Bell className="w-6 h-6 text-gray-700" />
-                  <div className="absolute -top-1 -right-1 bg-primary text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
-                    3
+                {/* Header */}
+                <div className="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-200">
+                  <div className="flex items-center space-x-4">
+                    <div className="text-xl">☰</div>
+                    <Image
+                      src="/images/Large Weeve Cropped.png"
+                      alt="Weeve"
+                      width={400}
+                      height={150}
+                      className="h-7 w-auto"
+                    />
                   </div>
-                </div>
-              </div>
-
-              {/* Shopping Section */}
-              <div className="px-4 py-3">
-                <div className="flex items-center justify-between mb-3">
-                  <div>
-                    <h3 className="text-xl font-bold">Shopping</h3>
-                    <p className="text-sm text-gray-500">12 lists</p>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <button className="text-sm text-primary font-medium">See all</button>
-                    <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white text-xl">
-                      +
+                  <div className="relative">
+                    <Bell className="w-6 h-6 text-gray-700" />
+                    <div className="absolute -top-1 -right-1 bg-primary text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
+                      3
                     </div>
                   </div>
                 </div>
 
-                {/* Collection Cards */}
-                <div className="grid grid-cols-2 gap-2">
-                  {/* Shoes Collection */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.3 }}
-                    className="bg-white rounded-2xl overflow-hidden shadow-sm"
-                  >
-                    <div className="relative">
-                      <div className="grid grid-cols-2 gap-0.5 p-0.5">
-                        <img 
-                          src="/images/shoes/adidas%20Supernova%2B.webp" 
-                          alt="Adidas Supernova+"
-                          className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                        />
-                        <img 
-                          src="/images/shoes/Brooks%20Adrenaline%20GTS%2022%20orange.webp" 
-                          alt="Brooks Adrenaline GTS 22"
-                          className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                        />
-                        <img 
-                          src="/images/shoes/HOKA%20Clifton%208.webp" 
-                          alt="HOKA Clifton 8"
-                          className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                        />
-                        {/* 4th Shoe with Animation */}
-                        <div className="relative h-16 w-full rounded-lg bg-gray-100 overflow-hidden">
-                          {/* Fireworks */}
-                          {showFourthShoe && [...Array(8)].map((_, i) => {
-                            const angle = (i * 360) / 8;
-                            const distance = 12;
-                            const radians = (angle * Math.PI) / 180;
-                            const x = Math.cos(radians) * distance;
-                            const y = Math.sin(radians) * distance;
-                            
-                            return (
-                              <motion.div
-                                key={i}
-                                className="absolute top-1/2 left-1/2 w-1.5 h-1.5 rounded-full bg-primary"
-                                initial={{ 
-                                  opacity: 0,
-                                  scale: 0,
-                                  x: 0,
-                                  y: 0,
-                                }}
-                                animate={{
-                                  opacity: [0, 1, 0],
-                                  scale: [0, 1.5, 0],
-                                  x: x,
-                                  y: y,
-                                }}
-                                transition={{
-                                  delay: 0.1 + (i * 0.05),
-                                  duration: 0.6,
-                                  ease: "easeOut",
-                                }}
-                                style={{
-                                  boxShadow: '0 0 6px rgba(251, 146, 60, 0.9)',
-                                }}
-                              />
-                            );
-                          })}
-                          
-                          {/* Blank placeholder or image */}
-                          {!showFourthShoe ? (
-                            <div className="w-full h-full bg-gray-200 rounded-lg" />
-                          ) : (
-                            <motion.img
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              transition={{
-                                delay: 0.5,
-                                duration: 0.4,
-                                ease: "easeOut",
-                              }}
-                              src="/images/shoes/Hoka%20Clifton%209.webp"
-                              alt="Hoka Clifton 9"
-                              className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                            />
-                          )}
-                        </div>
+                {/* Shopping Section */}
+                <div className="px-4 py-3">
+                  <div className="flex items-center justify-between mb-3">
+                    <div>
+                      <h3 className="text-xl font-bold">Shopping</h3>
+                      <p className="text-sm text-gray-500">12 lists</p>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <button className="text-sm text-primary font-medium">See all</button>
+                      <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white text-xl">
+                        +
                       </div>
                     </div>
-                    <div className="p-2">
-                      <div className="font-semibold text-sm">Shoes</div>
-                      <div className="text-xs text-gray-500 inline-flex items-baseline">
-                        <span className="relative inline-block" style={{ height: '12px', overflow: 'hidden', verticalAlign: 'baseline' }}>
-                          <motion.span
-                            className="block"
-                            initial={{ y: 0 }}
-                            animate={showFourthShoe ? { y: [0, -12, -12] } : { y: 0 }}
-                            transition={{
-                              delay: 0.6,
-                              duration: 0.8,
-                              times: [0, 0.4, 1],
-                              ease: [0.4, 0, 0.2, 1],
+                  </div>
+
+                  {/* Collection Cards */}
+                  <div className="grid grid-cols-2 gap-2">
+                    {/* Shoes Collection */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.3 }}
+                      className="bg-white rounded-2xl overflow-hidden shadow-sm"
+                    >
+                      <div className="relative">
+                        <div className="grid grid-cols-2 gap-0.5 p-0.5">
+                          <img
+                            src="/images/shoes/adidas%20Supernova%2B.webp"
+                            alt="Adidas Supernova+"
+                            className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                          />
+                          <img
+                            src="/images/shoes/Brooks%20Adrenaline%20GTS%2022%20orange.webp"
+                            alt="Brooks Adrenaline GTS 22"
+                            className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                          />
+                          <img
+                            src="/images/shoes/HOKA%20Clifton%208.webp"
+                            alt="HOKA Clifton 8"
+                            className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                          />
+                          {/* 4th Shoe with Animation */}
+                          <div className="relative h-16 w-full rounded-lg bg-gray-100 overflow-hidden">
+                            {/* Fireworks */}
+                            {showFourthShoe &&
+                              [...Array(8)].map((_, i) => {
+                                const angle = (i * 360) / 8;
+                                const distance = 12;
+                                const radians = (angle * Math.PI) / 180;
+                                const x = Math.cos(radians) * distance;
+                                const y = Math.sin(radians) * distance;
+
+                                return (
+                                  <motion.div
+                                    key={i}
+                                    className="absolute top-1/2 left-1/2 w-1.5 h-1.5 rounded-full bg-primary"
+                                    initial={{
+                                      opacity: 0,
+                                      scale: 0,
+                                      x: 0,
+                                      y: 0,
+                                    }}
+                                    animate={{
+                                      opacity: [0, 1, 0],
+                                      scale: [0, 1.5, 0],
+                                      x: x,
+                                      y: y,
+                                    }}
+                                    transition={{
+                                      delay: 0.1 + i * 0.05,
+                                      duration: 0.6,
+                                      ease: "easeOut",
+                                    }}
+                                    style={{
+                                      boxShadow: "0 0 6px rgba(251, 146, 60, 0.9)",
+                                    }}
+                                  />
+                                );
+                              })}
+
+                            {/* Blank placeholder or image */}
+                            {!showFourthShoe ? (
+                              <div className="w-full h-full bg-gray-200 rounded-lg" />
+                            ) : (
+                              <motion.img
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{
+                                  delay: 0.5,
+                                  duration: 0.4,
+                                  ease: "easeOut",
+                                }}
+                                src="/images/shoes/Hoka%20Clifton%209.webp"
+                                alt="Hoka Clifton 9"
+                                className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                              />
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="p-2">
+                        <div className="font-semibold text-sm">Shoes</div>
+                        <div className="text-xs text-gray-500 inline-flex items-baseline">
+                          <span
+                            className="relative inline-block"
+                            style={{
+                              height: "12px",
+                              overflow: "hidden",
+                              verticalAlign: "baseline",
                             }}
-                            style={{ lineHeight: '12px' }}
                           >
-                            <span className="block" style={{ height: '12px', lineHeight: '12px' }}>3</span>
                             <motion.span
                               className="block"
-                              initial={{ color: '#6b7280' }}
-                              animate={showFourthShoe ? { color: ['#fb923c', '#fb923c', '#6b7280'] } : { color: '#6b7280' }}
+                              initial={{ y: 0 }}
+                              animate={showFourthShoe ? { y: [0, -12, -12] } : { y: 0 }}
                               transition={{
                                 delay: 0.6,
                                 duration: 0.8,
-                                times: [0, 0.5, 1],
+                                times: [0, 0.4, 1],
+                                ease: [0.4, 0, 0.2, 1],
                               }}
-                              style={{ height: '12px', lineHeight: '12px' }}
+                              style={{ lineHeight: "12px" }}
                             >
-                              4
+                              <span
+                                className="block"
+                                style={{ height: "12px", lineHeight: "12px" }}
+                              >
+                                3
+                              </span>
+                              <motion.span
+                                className="block"
+                                initial={{ color: "#6b7280" }}
+                                animate={
+                                  showFourthShoe
+                                    ? { color: ["#fb923c", "#fb923c", "#6b7280"] }
+                                    : { color: "#6b7280" }
+                                }
+                                transition={{
+                                  delay: 0.6,
+                                  duration: 0.8,
+                                  times: [0, 0.5, 1],
+                                }}
+                                style={{ height: "12px", lineHeight: "12px" }}
+                              >
+                                4
+                              </motion.span>
                             </motion.span>
-                          </motion.span>
-                        </span>
-                        <span className="ml-1">items</span>
+                          </span>
+                          <span className="ml-1">items</span>
+                        </div>
                       </div>
-                    </div>
-                  </motion.div>
+                    </motion.div>
 
-                  {/* Headphones Collection */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.4 }}
-                    className="bg-white rounded-2xl overflow-hidden shadow-sm"
-                  >
-                    <div className="relative">
-                      <div className="grid grid-cols-2 gap-0.5 p-0.5">
-                        <img
-                          src="/images/headphones/81258af8-38fa-4d9e-a4c5-8e25ea454d7b.webp"
-                          alt="Wireless Earbuds"
-                          className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                        />
-                        <img
-                          src="/images/headphones/airpods-pro-3-hero-select-202509.jpeg"
-                          alt="AirPods Pro"
-                          className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                        />
-                        <img
-                          src="/images/headphones/de2d6c30-fad7-458c-b40f-9b1980571c4f.webp"
-                          alt="Over-ear Headphones"
-                          className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                        />
-                        <img
-                          src="/images/headphones/GUEST_87d70695-9ae4-4fd2-9cfa-10666f7ab012.avif"
-                          alt="Over-ear Headphones"
-                          className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                        />
+                    {/* Headphones Collection */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.4 }}
+                      className="bg-white rounded-2xl overflow-hidden shadow-sm"
+                    >
+                      <div className="relative">
+                        <div className="grid grid-cols-2 gap-0.5 p-0.5">
+                          <img
+                            src="/images/headphones/81258af8-38fa-4d9e-a4c5-8e25ea454d7b.webp"
+                            alt="Wireless Earbuds"
+                            className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                          />
+                          <img
+                            src="/images/headphones/airpods-pro-3-hero-select-202509.jpeg"
+                            alt="AirPods Pro"
+                            className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                          />
+                          <img
+                            src="/images/headphones/de2d6c30-fad7-458c-b40f-9b1980571c4f.webp"
+                            alt="Over-ear Headphones"
+                            className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                          />
+                          <img
+                            src="/images/headphones/GUEST_87d70695-9ae4-4fd2-9cfa-10666f7ab012.avif"
+                            alt="Over-ear Headphones"
+                            className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="p-2">
-                      <div className="font-semibold text-sm">Headphones</div>
-                      <div className="text-xs text-gray-500 inline-flex items-baseline">
-                        <span>5</span>
-                        <span className="ml-1">items</span>
+                      <div className="p-2">
+                        <div className="font-semibold text-sm">Headphones</div>
+                        <div className="text-xs text-gray-500 inline-flex items-baseline">
+                          <span>5</span>
+                          <span className="ml-1">items</span>
+                        </div>
                       </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
-
-              {/* Separator */}
-              <div className="px-4 py-4">
-                <div className="relative">
-                  <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-gray-200"></div>
-                  </div>
-                  <div className="relative flex justify-center">
-                    <div className="bg-gray-50 px-3">
-                      <div className="flex items-center space-x-1 text-gray-400">
-                        <div className="w-1 h-1 rounded-full bg-primary"></div>
-                        <div className="w-1 h-1 rounded-full bg-primary"></div>
-                        <div className="w-1 h-1 rounded-full bg-primary"></div>
-                      </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
-              </div>
 
-              {/* Things to Read Section */}
-              <div className="px-4 pb-4">
-                <div className="flex items-center justify-between mb-3">
-                  <div>
-                    <h3 className="text-xl font-bold">Things to Read</h3>
-                    <p className="text-sm text-gray-500">8 lists</p>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <button className="text-sm text-primary font-medium">See all</button>
-                    <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white text-xl">
-                      +
+                {/* Separator */}
+                <div className="px-4 py-4">
+                  <div className="relative">
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="w-full border-t border-gray-200"></div>
+                    </div>
+                    <div className="relative flex justify-center">
+                      <div className="bg-gray-50 px-3">
+                        <div className="flex items-center space-x-1 text-gray-400">
+                          <div className="w-1 h-1 rounded-full bg-primary"></div>
+                          <div className="w-1 h-1 rounded-full bg-primary"></div>
+                          <div className="w-1 h-1 rounded-full bg-primary"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-2">
-                  {/* Fantasy Collection */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5 }}
-                    className="bg-white rounded-2xl overflow-hidden shadow-sm"
-                  >
-                    <div className="relative">
-                      <div className="grid grid-cols-2 gap-0.5 p-0.5">
-                        <img
-                          src="/images/fantasy%20books/a%20wise%20mans%20fear.jpg"
-                          alt="A Wise Man's Fear"
-                          className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                        />
-                        <img
-                          src="/images/fantasy%20books/fellowship.webp"
-                          alt="Fellowship"
-                          className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                        />
-                        <img
-                          src="/images/fantasy%20books/name%20of%20the%20wind.jpg"
-                          alt="Name of the Wind"
-                          className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                        />
-                        <img
-                          src="/images/fantasy%20books/the%20two%20towers.jpg"
-                          alt="The Two Towers"
-                          className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                        />
-                      </div>
-                    </div>
-                    <div className="p-2">
-                      <div className="font-semibold text-sm">Fantasy</div>
-                      <div className="text-xs text-gray-500 inline-flex items-baseline">
-                        <span>6</span>
-                        <span className="ml-1">items</span>
-                      </div>
-                    </div>
-                  </motion.div>
 
-                  {/* Entrepreneurship Collection */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.6 }}
-                    className="bg-white rounded-2xl overflow-hidden shadow-sm"
-                  >
-                    <div className="relative">
-                      <div className="grid grid-cols-2 gap-0.5 p-0.5">
-                        <img
-                          src="/images/entrepreneurship%20books/good%20to%20great.jpeg"
-                          alt="Good to Great"
-                          className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                        />
-                        <img
-                          src="/images/entrepreneurship%20books/how%20i%20built%20this.webp"
-                          alt="How I Built This"
-                          className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                        />
-                        <img
-                          src="/images/entrepreneurship%20books/lean%20startup.webp"
-                          alt="Lean Startup"
-                          className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                        />
-                        <img
-                          src="/images/entrepreneurship%20books/zero%20to%20one.webp"
-                          alt="Zero to One"
-                          className="h-16 w-full object-contain rounded-lg bg-gray-100"
-                        />
+                {/* Things to Read Section */}
+                <div className="px-4 pb-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <div>
+                      <h3 className="text-xl font-bold">Things to Read</h3>
+                      <p className="text-sm text-gray-500">8 lists</p>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <button className="text-sm text-primary font-medium">See all</button>
+                      <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white text-xl">
+                        +
                       </div>
                     </div>
-                    <div className="p-2">
-                      <div className="font-semibold text-sm">Entrepreneurship</div>
-                      <div className="text-xs text-gray-500 inline-flex items-baseline">
-                        <span>8</span>
-                        <span className="ml-1">items</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    {/* Fantasy Collection */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.5 }}
+                      className="bg-white rounded-2xl overflow-hidden shadow-sm"
+                    >
+                      <div className="relative">
+                        <div className="grid grid-cols-2 gap-0.5 p-0.5">
+                          <img
+                            src="/images/fantasy%20books/a%20wise%20mans%20fear.jpg"
+                            alt="A Wise Man's Fear"
+                            className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                          />
+                          <img
+                            src="/images/fantasy%20books/fellowship.webp"
+                            alt="Fellowship"
+                            className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                          />
+                          <img
+                            src="/images/fantasy%20books/name%20of%20the%20wind.jpg"
+                            alt="Name of the Wind"
+                            className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                          />
+                          <img
+                            src="/images/fantasy%20books/the%20two%20towers.jpg"
+                            alt="The Two Towers"
+                            className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </motion.div>
+                      <div className="p-2">
+                        <div className="font-semibold text-sm">Fantasy</div>
+                        <div className="text-xs text-gray-500 inline-flex items-baseline">
+                          <span>6</span>
+                          <span className="ml-1">items</span>
+                        </div>
+                      </div>
+                    </motion.div>
+
+                    {/* Entrepreneurship Collection */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.6 }}
+                      className="bg-white rounded-2xl overflow-hidden shadow-sm"
+                    >
+                      <div className="relative">
+                        <div className="grid grid-cols-2 gap-0.5 p-0.5">
+                          <img
+                            src="/images/entrepreneurship%20books/good%20to%20great.jpeg"
+                            alt="Good to Great"
+                            className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                          />
+                          <img
+                            src="/images/entrepreneurship%20books/how%20i%20built%20this.webp"
+                            alt="How I Built This"
+                            className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                          />
+                          <img
+                            src="/images/entrepreneurship%20books/lean%20startup.webp"
+                            alt="Lean Startup"
+                            className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                          />
+                          <img
+                            src="/images/entrepreneurship%20books/zero%20to%20one.webp"
+                            alt="Zero to One"
+                            className="h-16 w-full object-contain rounded-lg bg-gray-100"
+                          />
+                        </div>
+                      </div>
+                      <div className="p-2">
+                        <div className="font-semibold text-sm">Entrepreneurship</div>
+                        <div className="text-xs text-gray-500 inline-flex items-baseline">
+                          <span>8</span>
+                          <span className="ml-1">items</span>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
                 </div>
-              </div>
               </motion.div>
             )}
           </div>
         </div>
       </motion.div>
     </div>
-  )
+  );
 }

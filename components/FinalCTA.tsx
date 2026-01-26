@@ -1,21 +1,21 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
-import { ArrowRight, Sparkles, Check } from 'lucide-react'
-import Link from 'next/link'
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { ArrowRight, Sparkles, Check } from "lucide-react";
+import Link from "next/link";
 
 export default function FinalCTA() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-  const [email, setEmail] = useState('')
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle email submission
-    console.log('Email submitted:', email)
-  }
+    console.log("Email submitted:", email);
+  };
 
   return (
     <section className="py-20 md:py-32 bg-gradient-to-br from-primary via-orange-500 to-orange-600 relative overflow-hidden">
@@ -29,7 +29,7 @@ export default function FinalCTA() {
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: 'linear',
+            ease: "linear",
           }}
           className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
         />
@@ -41,7 +41,7 @@ export default function FinalCTA() {
           transition={{
             duration: 15,
             repeat: Infinity,
-            ease: 'linear',
+            ease: "linear",
           }}
           className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
         />
@@ -72,7 +72,8 @@ export default function FinalCTA() {
           </h2>
 
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-12 max-w-2xl mx-auto">
-            Join thousands of people who&apos;ve transformed how they save, organize, and act on everything they care about online.
+            Join thousands of people who&apos;ve transformed how they save, organize, and act on
+            everything they care about online.
           </p>
 
           {/* Email Form */}
@@ -113,16 +114,17 @@ export default function FinalCTA() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 text-sm sm:text-base text-white/90"
           >
-            {[
-              'Free to start',
-              'No credit card required',
-              'Cancel anytime',
-            ].map((feature, index) => (
-              <div key={index} className="flex items-center justify-center sm:justify-start space-x-2">
-                <Check className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                <span>{feature}</span>
-              </div>
-            ))}
+            {["Free to start", "No credit card required", "Cancel anytime"].map(
+              (feature, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-center sm:justify-start space-x-2"
+                >
+                  <Check className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                  <span>{feature}</span>
+                </div>
+              )
+            )}
           </motion.div>
 
           {/* Platforms */}
@@ -134,7 +136,7 @@ export default function FinalCTA() {
           >
             <p className="text-sm sm:text-base text-white/70 mb-4">Available on</p>
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8">
-              {['Chrome', 'Safari', 'iOS', 'Android', 'Web'].map((platform, index) => (
+              {["Chrome", "Safari", "iOS", "Android", "Web"].map((platform, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.1 }}
@@ -148,5 +150,5 @@ export default function FinalCTA() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,58 +1,70 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { Star, Quote } from 'lucide-react'
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: 'Sarah Chen',
-    role: 'Product Designer',
-    avatar: 'SC',
-    content: 'Weeve has completely changed how I research and save design inspiration. The AI extraction is magical—it pulls exactly what I need.',
+    name: "Sarah Chen",
+    role: "Product Designer",
+    avatar: "SC",
+    content:
+      "Weeve has completely changed how I research and save design inspiration. The AI extraction is magical—it pulls exactly what I need.",
     rating: 5,
   },
   {
-    name: 'Marcus Johnson',
-    role: 'Home Buyer',
-    avatar: 'MJ',
-    content: "I was juggling dozens of real estate listings across different sites. Weeve organized everything beautifully and made comparing properties so easy.",
+    name: "Marcus Johnson",
+    role: "Home Buyer",
+    avatar: "MJ",
+    content:
+      "I was juggling dozens of real estate listings across different sites. Weeve organized everything beautifully and made comparing properties so easy.",
     rating: 5,
   },
   {
-    name: 'Emily Rodriguez',
-    role: 'Recipe Collector',
-    avatar: 'ER',
-    content: 'Finally, all my saved recipes in one place! The automatic ingredient extraction and smart search make meal planning a breeze.',
+    name: "Emily Rodriguez",
+    role: "Recipe Collector",
+    avatar: "ER",
+    content:
+      "Finally, all my saved recipes in one place! The automatic ingredient extraction and smart search make meal planning a breeze.",
     rating: 5,
   },
   {
-    name: 'David Park',
-    role: 'Researcher',
-    avatar: 'DP',
-    content: 'As someone who reads hundreds of articles, Weeve has become my second brain. The personalized feed resurfaces content at the perfect time.',
+    name: "David Park",
+    role: "Researcher",
+    avatar: "DP",
+    content:
+      "As someone who reads hundreds of articles, Weeve has become my second brain. The personalized feed resurfaces content at the perfect time.",
     rating: 5,
   },
   {
-    name: 'Lisa Thompson',
-    role: 'Travel Planner',
-    avatar: 'LT',
-    content: 'Planning trips with friends has never been easier. We can all save places, compare options, and make decisions together in Weeve.',
+    name: "Lisa Thompson",
+    role: "Travel Planner",
+    avatar: "LT",
+    content:
+      "Planning trips with friends has never been easier. We can all save places, compare options, and make decisions together in Weeve.",
     rating: 5,
   },
   {
-    name: 'Alex Kumar',
-    role: 'Tech Enthusiast',
-    avatar: 'AK',
-    content: 'The cross-platform sync is seamless. I save on my phone during commute and organize on my desktop at home. Everything just works.',
+    name: "Alex Kumar",
+    role: "Tech Enthusiast",
+    avatar: "AK",
+    content:
+      "The cross-platform sync is seamless. I save on my phone during commute and organize on my desktop at home. Everything just works.",
     rating: 5,
   },
-]
+];
 
-function TestimonialCard({ testimonial, index }: { testimonial: typeof testimonials[0]; index: number }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+function TestimonialCard({
+  testimonial,
+  index,
+}: {
+  testimonial: (typeof testimonials)[0];
+  index: number;
+}) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <motion.div
@@ -76,9 +88,7 @@ function TestimonialCard({ testimonial, index }: { testimonial: typeof testimoni
       </div>
 
       {/* Content */}
-      <p className="text-gray-700 mb-6 leading-relaxed italic">
-        &quot;{testimonial.content}&quot;
-      </p>
+      <p className="text-gray-700 mb-6 leading-relaxed italic">&quot;{testimonial.content}&quot;</p>
 
       {/* Author */}
       <div className="flex items-center space-x-3">
@@ -91,12 +101,12 @@ function TestimonialCard({ testimonial, index }: { testimonial: typeof testimoni
         </div>
       </div>
     </motion.div>
-  )
+  );
 }
 
 export default function Testimonials() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   return (
     <section className="py-20 md:py-32 bg-gradient-to-b from-orange-50/30 to-white overflow-hidden">
@@ -137,10 +147,10 @@ export default function Testimonials() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-12 md:mt-20"
         >
           {[
-            { value: '100K+', label: 'Active Users' },
-            { value: '5M+', label: 'Items Saved' },
-            { value: '50K+', label: 'Lists Created' },
-            { value: '4.9', label: 'App Rating' },
+            { value: "100K+", label: "Active Users" },
+            { value: "5M+", label: "Items Saved" },
+            { value: "50K+", label: "Lists Created" },
+            { value: "4.9", label: "App Rating" },
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-2">
@@ -152,5 +162,5 @@ export default function Testimonials() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

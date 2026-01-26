@@ -1,23 +1,23 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Twitter, Linkedin, Instagram, Github, Mail } from 'lucide-react'
-import Image from 'next/image'
+import { motion } from "framer-motion";
+import { Twitter, Linkedin, Instagram, Github, Mail } from "lucide-react";
+import Image from "next/image";
 
 const footerLinks = {
-  Product: ['Features', 'Pricing', 'Security', 'Changelog', 'Roadmap'],
-  Company: ['About', 'Blog', 'Careers', 'Press Kit', 'Contact'],
-  Resources: ['Documentation', 'Help Center', 'Community', 'API', 'Status'],
-  Legal: ['Privacy', 'Terms', 'Cookie Policy', 'Licenses', 'GDPR'],
-}
+  Product: ["Features", "Pricing", "Security", "Changelog", "Roadmap"],
+  Company: ["About", "Blog", "Careers", "Press Kit", "Contact"],
+  Resources: ["Documentation", "Help Center", "Community", "API", "Status"],
+  Legal: ["Privacy", "Terms", "Cookie Policy", "Licenses", "GDPR"],
+};
 
 const socialLinks = [
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Github, href: '#', label: 'GitHub' },
-  { icon: Mail, href: '#', label: 'Email' },
-]
+  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Github, href: "#", label: "GitHub" },
+  { icon: Mail, href: "#", label: "Email" },
+];
 
 export default function Footer() {
   return (
@@ -27,10 +27,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
           {/* Brand Column */}
           <div className="col-span-2">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="mb-4"
-            >
+            <motion.div whileHover={{ scale: 1.05 }} className="mb-4">
               <Image
                 src="/images/Large Weeve Cropped.png"
                 alt="Weeve"
@@ -40,13 +37,14 @@ export default function Footer() {
               />
             </motion.div>
             <p className="text-gray-400 mb-6 max-w-sm">
-              Your universal save layer. Capture, organize, and return to anything you care about online.
+              Your universal save layer. Capture, organize, and return to anything you care about
+              online.
             </p>
-            
+
             {/* Social Links */}
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => {
-                const Icon = social.icon
+                const Icon = social.icon;
                 return (
                   <motion.a
                     key={index}
@@ -58,7 +56,7 @@ export default function Footer() {
                   >
                     <Icon className="w-5 h-5" />
                   </motion.a>
-                )
+                );
               })}
             </div>
           </div>
@@ -70,10 +68,7 @@ export default function Footer() {
               <ul className="space-y-3">
                 {links.map((link, index) => (
                   <li key={index}>
-                    <a
-                      href="#"
-                      className="hover:text-primary transition-colors"
-                    >
+                    <a href="#" className="hover:text-primary transition-colors">
                       {link}
                     </a>
                   </li>
@@ -87,9 +82,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8 mb-8">
           <div className="max-w-md">
             <h3 className="font-semibold text-white mb-2">Stay updated</h3>
-            <p className="text-gray-400 mb-4">
-              Get the latest news and updates from Weeve
-            </p>
+            <p className="text-gray-400 mb-4">Get the latest news and updates from Weeve</p>
             <form className="flex gap-2">
               <input
                 type="email"
@@ -127,5 +120,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
