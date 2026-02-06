@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { X, Linkedin, Instagram, Mail } from "lucide-react";
 import Image from "next/image";
+import WeeveLogo from "@/public/images/Weeve_New_Logo_Correct_Orange.png";
+import XLogoWhite from "@/public/images/X_logo_2023_(white).svg.png";
 
 // Custom TikTok Icon Component
 const TikTokIcon = ({ className }: { className?: string }) => (
@@ -25,7 +27,7 @@ const footerLinks = {
 
 const socialLinks = [
   { icon: TikTokIcon, href: "#", label: "TikTok", isImage: false },
-  { icon: null, href: "#", label: "X", isImage: true, imagePath: "/images/X_logo_2023_(white).svg.png" },
+  { icon: null, href: "#", label: "X", isImage: true, imageSrc: XLogoWhite },
   { icon: Instagram, href: "#", label: "Instagram", isImage: false },
   { icon: Linkedin, href: "#", label: "LinkedIn", isImage: false },
   { icon: Mail, href: "#", label: "Email", isImage: false },
@@ -41,7 +43,7 @@ export default function Footer() {
           <div className="col-span-2">
             <motion.div whileHover={{ scale: 1.05 }} className="mb-4">
               <Image
-                src="/images/Weeve_New_Logo_Correct_Orange.png"
+                src={WeeveLogo}
                 alt="Weeve"
                 width={400}
                 height={150}
@@ -65,9 +67,9 @@ export default function Footer() {
                     className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
                     aria-label={social.label}
                   >
-                    {social.isImage && social.imagePath ? (
+                    {social.isImage && social.imageSrc ? (
                       <Image
-                        src={social.imagePath}
+                        src={social.imageSrc}
                         alt={social.label}
                         width={18}
                         height={18}

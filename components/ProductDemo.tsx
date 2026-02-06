@@ -5,6 +5,9 @@ import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Chrome, Smartphone, ArrowRight, Bell, ChevronDown, X, Folder, List } from "lucide-react";
 import Image from "next/image";
+import { getImageUrl } from "@/utils";
+import WeeveLogo from "@/public/images/Weeve_New_Logo_Correct_Orange.png";
+import WIconWhite from "@/public/images/W_Icon_White.png";
 
 export default function ProductDemo() {
   const ref = useRef(null);
@@ -329,7 +332,7 @@ function ExtensionDemo() {
           <div className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <Image
-                src="/images/Weeve_New_Logo_Correct_Orange.png"
+                src={WeeveLogo}
                 alt="Weeve"
                 width={400}
                 height={150}
@@ -364,12 +367,12 @@ function ExtensionDemo() {
                 <div className="relative">
                   <div className="grid grid-cols-2 gap-1 p-1">
                     <img
-                      src="/images/winter%20jackets/vuori%20jacket.webp"
+                      src={getImageUrl("landing/winter%20jackets/vuori%20jacket.webp")}
                       alt="Vuori Jacket"
                       className="h-24 w-full object-cover rounded"
                     />
                     <img
-                      src="/images/winter%20jackets/Womens-Aconcagua-3-Hoodie.avif"
+                      src={getImageUrl("landing/winter%20jackets/Womens-Aconcagua-3-Hoodie.avif")}
                       alt="Women's Aconcagua 3 Hoodie"
                       className="h-24 w-full object-cover rounded"
                     />
@@ -465,12 +468,12 @@ function ExtensionDemo() {
                 <div className="relative">
                   <div className="grid grid-cols-2 gap-1 p-1">
                     <img
-                      src="/images/womens%20running%20shoes/brookswomens.avif"
+                      src={getImageUrl("landing/womens%20running%20shoes/brookswomens.avif")}
                       alt="Brooks Women's Running Shoes"
                       className="h-24 w-full object-cover rounded"
                     />
                     <img
-                      src="/images/womens%20running%20shoes/womens%20on.avif"
+                      src={getImageUrl("landing/womens%20running%20shoes/womens%20on.avif")}
                       alt="Women's Running Shoes"
                       className="h-24 w-full object-cover rounded"
                     />
@@ -495,12 +498,12 @@ function ExtensionDemo() {
                 <div className="relative">
                   <div className="grid grid-cols-2 gap-1 p-1">
                     <img
-                      src="/images/new%20jeans/womens%20jeans%202.webp"
+                      src={getImageUrl("landing/new%20jeans/womens%20jeans%202.webp")}
                       alt="Women's Jeans"
                       className="h-24 w-full object-cover rounded"
                     />
                     <img
-                      src="/images/new%20jeans/womensjeans1.webp"
+                      src={getImageUrl("landing/new%20jeans/womensjeans1.webp")}
                       alt="Women's Jeans"
                       className="h-24 w-full object-cover rounded"
                     />
@@ -573,7 +576,7 @@ function ExtensionPopupDemo() {
               onClick={() => setShowPopup(!showPopup)}
             >
               <Image
-                src="/images/W_Icon_White.png"
+                src={WIconWhite}
                 alt="Weeve Extension"
                 width={16}
                 height={16}
@@ -607,7 +610,7 @@ function ExtensionPopupDemo() {
                 </div>
                 {/* Recipe image */}
                 <img
-                  src="/images/chrome%20extension/carbonara.jpg"
+                  src={getImageUrl("landing/chrome%20extension/carbonara.jpg")}
                   alt="Classic Spaghetti Carbonara"
                   className="w-full h-full object-cover"
                 />
@@ -650,7 +653,7 @@ function ExtensionPopupDemo() {
           {/* Orange Top Bar */}
           <div className="bg-primary px-4 py-3 flex items-center justify-between">
             <Image
-              src="/images/Weeve_New_Logo_Correct_Orange.png"
+              src={WeeveLogo}
               alt="Weeve"
               width={400}
               height={150}
@@ -705,9 +708,12 @@ function ExtensionPopupDemo() {
           <div className="px-4 py-3 border-b border-gray-200">
             <div className="grid grid-cols-3 gap-2">
               {[
-                { src: "/images/chrome%20extension/carbonara.jpg", alt: "Spaghetti Carbonara" },
-                { src: "/images/chrome%20extension/carb2.jpeg", alt: "Carbonara 2" },
-                { src: "/images/chrome%20extension/carb3.jpg", alt: "Carbonara 3" },
+                {
+                  src: getImageUrl("landing/chrome%20extension/carbonara.jpg"),
+                  alt: "Spaghetti Carbonara",
+                },
+                { src: getImageUrl("landing/chrome%20extension/carb2.jpeg"), alt: "Carbonara 2" },
+                { src: getImageUrl("landing/chrome%20extension/carb3.jpg"), alt: "Carbonara 3" },
               ].map((image, i) => (
                 <div
                   key={i}
@@ -867,7 +873,7 @@ function MobileDemo() {
                         <div className="mb-2">
                           <div className="w-full rounded-lg bg-gray-100 flex items-center justify-center py-2">
                             <img
-                              src="/images/shoes/Hoka%20Clifton%209.webp"
+                              src={getImageUrl("landing/shoes/Hoka%20Clifton%209.webp")}
                               alt="Hoka Clifton 9"
                               className="max-h-[65px] w-auto object-contain"
                             />
@@ -911,7 +917,7 @@ function MobileDemo() {
                   <div className="flex items-center space-x-4">
                     <div className="text-xl">☰</div>
                     <Image
-                      src="/images/Weeve_New_Logo_Correct_Orange.png"
+                      src={WeeveLogo}
                       alt="Weeve"
                       width={400}
                       height={150}
@@ -953,17 +959,17 @@ function MobileDemo() {
                       <div className="relative">
                         <div className="grid grid-cols-2 gap-0.5 p-0.5">
                           <img
-                            src="/images/shoes/adidas%20Supernova%2B.webp"
+                            src={getImageUrl("landing/shoes/adidas%20Supernova%2B.webp")}
                             alt="Adidas Supernova+"
                             className="h-16 w-full object-contain rounded-lg bg-gray-100"
                           />
                           <img
-                            src="/images/shoes/Brooks%20Adrenaline%20GTS%2022%20orange.webp"
+                            src={getImageUrl("landing/shoes/Brooks%20Adrenaline%20GTS%2022%20orange.webp")}
                             alt="Brooks Adrenaline GTS 22"
                             className="h-16 w-full object-contain rounded-lg bg-gray-100"
                           />
                           <img
-                            src="/images/shoes/HOKA%20Clifton%208.webp"
+                            src={getImageUrl("landing/shoes/HOKA%20Clifton%208.webp")}
                             alt="HOKA Clifton 8"
                             className="h-16 w-full object-contain rounded-lg bg-gray-100"
                           />
@@ -1018,7 +1024,7 @@ function MobileDemo() {
                                   duration: 0.4,
                                   ease: "easeOut",
                                 }}
-                                src="/images/shoes/Hoka%20Clifton%209.webp"
+                                src={getImageUrl("landing/shoes/Hoka%20Clifton%209.webp")}
                                 alt="Hoka Clifton 9"
                                 className="h-16 w-full object-contain rounded-lg bg-gray-100"
                               />
@@ -1089,22 +1095,22 @@ function MobileDemo() {
                       <div className="relative">
                         <div className="grid grid-cols-2 gap-0.5 p-0.5">
                           <img
-                            src="/images/headphones/81258af8-38fa-4d9e-a4c5-8e25ea454d7b.webp"
+                            src={getImageUrl("landing/headphones/81258af8-38fa-4d9e-a4c5-8e25ea454d7b.webp")}
                             alt="Wireless Earbuds"
                             className="h-16 w-full object-contain rounded-lg bg-gray-100"
                           />
                           <img
-                            src="/images/headphones/airpods-pro-3-hero-select-202509.jpeg"
+                            src={getImageUrl("landing/headphones/airpods-pro-3-hero-select-202509.jpeg")}
                             alt="AirPods Pro"
                             className="h-16 w-full object-contain rounded-lg bg-gray-100"
                           />
                           <img
-                            src="/images/headphones/de2d6c30-fad7-458c-b40f-9b1980571c4f.webp"
+                            src={getImageUrl("landing/headphones/de2d6c30-fad7-458c-b40f-9b1980571c4f.webp")}
                             alt="Over-ear Headphones"
                             className="h-16 w-full object-contain rounded-lg bg-gray-100"
                           />
                           <img
-                            src="/images/headphones/GUEST_87d70695-9ae4-4fd2-9cfa-10666f7ab012.avif"
+                            src={getImageUrl("landing/headphones/GUEST_87d70695-9ae4-4fd2-9cfa-10666f7ab012.avif")}
                             alt="Over-ear Headphones"
                             className="h-16 w-full object-contain rounded-lg bg-gray-100"
                           />
@@ -1164,22 +1170,22 @@ function MobileDemo() {
                       <div className="relative">
                         <div className="grid grid-cols-2 gap-0.5 p-0.5">
                           <img
-                            src="/images/fantasy%20books/a%20wise%20mans%20fear.jpg"
+                            src={getImageUrl("landing/fantasy%20books/a%20wise%20mans%20fear.jpg")}
                             alt="A Wise Man's Fear"
                             className="h-16 w-full object-contain rounded-lg bg-gray-100"
                           />
                           <img
-                            src="/images/fantasy%20books/fellowship.webp"
+                            src={getImageUrl("landing/fantasy%20books/fellowship.webp")}
                             alt="Fellowship"
                             className="h-16 w-full object-contain rounded-lg bg-gray-100"
                           />
                           <img
-                            src="/images/fantasy%20books/name%20of%20the%20wind.jpg"
+                            src={getImageUrl("landing/fantasy%20books/name%20of%20the%20wind.jpg")}
                             alt="Name of the Wind"
                             className="h-16 w-full object-contain rounded-lg bg-gray-100"
                           />
                           <img
-                            src="/images/fantasy%20books/the%20two%20towers.jpg"
+                            src={getImageUrl("landing/fantasy%20books/the%20two%20towers.jpg")}
                             alt="The Two Towers"
                             className="h-16 w-full object-contain rounded-lg bg-gray-100"
                           />
@@ -1204,22 +1210,22 @@ function MobileDemo() {
                       <div className="relative">
                         <div className="grid grid-cols-2 gap-0.5 p-0.5">
                           <img
-                            src="/images/entrepreneurship%20books/good%20to%20great.jpeg"
+                            src={getImageUrl("landing/entrepreneurship%20books/good%20to%20great.jpeg")}
                             alt="Good to Great"
                             className="h-16 w-full object-contain rounded-lg bg-gray-100"
                           />
                           <img
-                            src="/images/entrepreneurship%20books/how%20i%20built%20this.webp"
+                            src={getImageUrl("landing/entrepreneurship%20books/how%20i%20built%20this.webp")}
                             alt="How I Built This"
                             className="h-16 w-full object-contain rounded-lg bg-gray-100"
                           />
                           <img
-                            src="/images/entrepreneurship%20books/lean%20startup.webp"
+                            src={getImageUrl("landing/entrepreneurship%20books/lean%20startup.webp")}
                             alt="Lean Startup"
                             className="h-16 w-full object-contain rounded-lg bg-gray-100"
                           />
                           <img
-                            src="/images/entrepreneurship%20books/zero%20to%20one.webp"
+                            src={getImageUrl("landing/entrepreneurship%20books/zero%20to%20one.webp")}
                             alt="Zero to One"
                             className="h-16 w-full object-contain rounded-lg bg-gray-100"
                           />
