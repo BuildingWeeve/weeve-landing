@@ -6,8 +6,6 @@ import { useRef, useState, useEffect } from "react";
 import { Chrome, Smartphone, ArrowRight, Bell, ChevronDown, X, Folder, List } from "lucide-react";
 import Image from "next/image";
 import { getImageUrl } from "@/utils";
-import WeeveLogo from "@/public/images/Weeve_New_Logo_Correct_Orange.png";
-import WIconWhite from "@/public/images/W_Icon_White.png";
 
 export default function ProductDemo() {
   const ref = useRef(null);
@@ -576,7 +574,7 @@ function ExtensionPopupDemo() {
               onClick={() => setShowPopup(!showPopup)}
             >
               <Image
-                src={WIconWhite}
+                src={getImageUrl("landing/icons/W_Icon_White.png")}
                 alt="Weeve Extension"
                 width={16}
                 height={16}
@@ -653,7 +651,7 @@ function ExtensionPopupDemo() {
           {/* Orange Top Bar */}
           <div className="bg-primary px-4 py-3 flex items-center justify-between">
             <Image
-              src={WeeveLogo}
+              src={getImageUrl("landing/icons/Weeve_New_Logo_Correct_Orange.png")}
               alt="Weeve"
               width={400}
               height={150}
@@ -917,7 +915,7 @@ function MobileDemo() {
                   <div className="flex items-center space-x-4">
                     <div className="text-xl">☰</div>
                     <Image
-                      src={WeeveLogo}
+                      src={getImageUrl("landing/icons/Weeve_New_Logo_Correct_Orange.png")}
                       alt="Weeve"
                       width={400}
                       height={150}

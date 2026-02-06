@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import WeeveLogo from "@/public/images/Weeve_New_Logo_Correct_Orange.png";
+import { getImageUrl } from "@/utils";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,7 +32,7 @@ export default function Navbar() {
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.05 }} className="flex items-center">
             <Image
-              src={WeeveLogo}
+              src={getImageUrl("landing/icons/Weeve_New_Logo_Correct_Orange.png")}
               alt="Weeve"
               width={400}
               height={150}
