@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Chrome, Smartphone, Monitor } from "lucide-react";
 import WeavingAnimation from "./WeavingAnimation";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export default function Hero() {
+  const isMobile = useIsMobile();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50 via-white to-orange-50/30 pt-16">
       {/* Animated background elements */}
@@ -125,14 +128,16 @@ export default function Hero() {
           </div>
 
           {/* Right Side - Weaving Animation */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex items-center justify-center lg:justify-end"
-          >
-            <WeavingAnimation />
-          </motion.div>
+          {!isMobile && (
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex items-center justify-center lg:justify-end"
+            >
+              <WeavingAnimation />
+            </motion.div>
+          )}
         </div>
       </div>
 

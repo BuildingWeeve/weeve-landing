@@ -10,6 +10,11 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const redirectToAuth = (path: "/sign-in" | "/sign-up") => {
+    const baseDomain = process.env.NEXT_PUBLIC_APP_DOMAIN || window.location.origin;
+    window.location.href = `${baseDomain}${path}`;
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -23,9 +28,8 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/90 backdrop-blur-lg shadow-md" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/90 backdrop-blur-lg shadow-md" : "bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
@@ -52,13 +56,26 @@ export default function Navbar() {
             <a href="#demo" className="text-gray-700 hover:text-primary transition-colors">
               Demo
             </a>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-primary text-white px-6 py-2.5 rounded-full font-medium hover:bg-primary-600 transition-colors"
-            >
-              Get Started
-            </motion.button>
+            <div className="flex items-center gap-3">
+              <motion.button
+                type="button"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="border border-gray-300 text-gray-700 px-6 py-2.5 rounded-full font-medium hover:border-primary hover:text-primary transition-colors"
+                onClick={() => redirectToAuth("/sign-in")}
+              >
+                Sign In
+              </motion.button>
+              <motion.button
+                type="button"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-primary text-white px-6 py-2.5 rounded-full font-medium hover:bg-primary-600 transition-colors"
+                onClick={() => redirectToAuth("/sign-up")}
+              >
+                Sign Up
+              </motion.button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -100,9 +117,22 @@ export default function Navbar() {
             >
               Demo
             </a>
-            <button className="w-full bg-primary text-white px-6 py-2.5 rounded-full font-medium">
-              Get Started
-            </button>
+            <div className="grid grid-cols-2 gap-3 pt-2">
+              <button
+                type="button"
+                className="w-full border border-gray-300 text-gray-700 px-6 py-2.5 rounded-full font-medium"
+                onClick={() => redirectToAuth("/sign-in")}
+              >
+                Sign In
+              </button>
+              <button
+                type="button"
+                className="w-full bg-primary text-white px-6 py-2.5 rounded-full font-medium"
+                onClick={() => redirectToAuth("/sign-up")}
+              >
+                Sign Up
+              </button>
+            </div>
           </div>
         </motion.div>
       )}
